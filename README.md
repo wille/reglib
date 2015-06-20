@@ -1,2 +1,2 @@
 # reglib
-Working with Windows registry in Java
+Working with Windows registry in Java using JNI
