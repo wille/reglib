@@ -9,5 +9,5 @@ JNIEXPORT jobject JNICALL Java_reglib_NativeRegistry_openKey(JNIEnv * env, jclas
 
 	RegOpenKeyEx(hKey, getcstring(env, lpSubKey), 0, 0, &ihandle);
 
-	return ihandle;
+	return getjavahandle(env, ihandle);
 }
