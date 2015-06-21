@@ -10,9 +10,17 @@ extern "C" {
 /*
  * Class:     reglib_NativeRegistry
  * Method:    createKey
- * Signature: (ILjava/lang/String;)Z
+ * Signature: (ILjava/lang/String;)I
  */
 JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_createKey
+  (JNIEnv *, jclass, jint, jstring);
+
+/*
+ * Class:     reglib_NativeRegistry
+ * Method:    deleteKey
+ * Signature: (ILjava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_deleteKey
   (JNIEnv *, jclass, jint, jstring);
 
 #ifdef __cplusplus

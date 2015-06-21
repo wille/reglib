@@ -10,5 +10,7 @@ public class NativeRegistry {
 	 * @return
 	 */
 	public static native int createKey(int hKey, String lpSubKey);
+	
+	public static native int deleteKey(int hKey, String lpSubKey);
 
 }
