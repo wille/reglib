@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT jobject JNICALL Java_reglib_NativeRegistry_openKey
   (JNIEnv *, jclass, jint, jstring);
 
+/*
+ * Class:     reglib_NativeRegistry
+ * Method:    createKey
+ * Signature: (ILjava/lang/String;)Lreglib/Handle;
+ */
+JNIEXPORT jobject JNICALL Java_reglib_NativeRegistry_createKey
+  (JNIEnv *, jclass, jint, jstring);
+
 #ifdef __cplusplus
 }
 #endif
