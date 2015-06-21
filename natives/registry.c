@@ -7,6 +7,14 @@
 #define RESERVED 0
 #define DEFAULT_KEY_TYPE REG_OPTION_NON_VOLATILE
 
+int open(int hKey, char* lpSubKey) {
+	int phkResult;
+
+	int result = RegOpenKeyEx(hKey, lpSubKey, 0, KEY_SET_VALUE, &phkResult);
+
+	return phkResult;
+}
+
 JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_createKey(JNIEnv * env, jclass z, jint hKey, jstring lpSubKey) {
 	int phkResult;
 	int lpdwDisposition;
