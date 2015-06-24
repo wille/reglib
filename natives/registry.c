@@ -38,3 +38,22 @@ JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_deleteKey(JNIEnv * env, jclass
 
 	return response;
 }
+
+JNIEXPORT jobjectArray JNICALL Java_reglib_NativeRegistry_enumValues(JNIEnv * env, jclass z, jint hKey, jstring lpSubKey) {
+	int response;
+	int handle = open(hKey, getcstring(env, lpSubKey), &response);
+
+	int index = 0;
+	int i;
+
+	do {
+		char* keyname[256];
+		char* data[2048];
+
+		i = RegEnumValue(hKey, index++, &keyname, NULL, RESERVED, NULL, &data, NULL);
+
+		if (i != ERROR_SUCCESS) {
+			break;
+		}
+	} while (i == ERROR_SUCCESS);
+}
