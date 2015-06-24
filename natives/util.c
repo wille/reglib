@@ -37,7 +37,7 @@ void addtolist(JNIEnv * env, jobject list, jobject obj) {
 }
 
 jobject getvalue(JNIEnv * env, char* name, char* data) {
-	jclass clazz = (*env)->FindClass(env, "reglib/Value");
+	jclass clazz = (*env)->FindClass(env, "reglib/RegistryValue");
 	jmethodID constructor = (*env)->GetMethodID(env, clazz, "<init>", "(Ljava/lang/String;Ljava/lang/String)V");
 
 	jobject obj = (*env)->NewObject(env, clazz, constructor, getstring(env, name), getstring(env, data));
