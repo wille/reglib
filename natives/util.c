@@ -35,3 +35,11 @@ void addtolist(JNIEnv * env, jobject list, jobject obj) {
 
 	(*env)->CallBooleanMethod(env, list, (*env)->GetMethodID(env, clazz, "add", "(Ljava/lang/Object;)Z"));
 }
+
+jobject getvalue(JNIEnv * env, char* name, char* data) {
+	jclass clazz = (*env)->FindClass(env, "reglib/Value");
+	jmethodID constructor = (*env)->GetMethodID(env, clazz, "<init>", "(Ljava/lang/String;Ljava/lang/String)V");
+
+	jobject obj = (*env)->NewObject(env, clazz, constructor, getstring(env, name), getstring(env, data));
+	return obj;
+}
