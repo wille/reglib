@@ -1,6 +1,8 @@
 #include <jni.h>
 
+#ifndef NULL
 #define NULL 0
+#endif
 
 jstring getstring(JNIEnv * env, char* buffer) {
 	return (*env)->NewStringUTF(env, buffer);
@@ -16,4 +18,20 @@ jobject getjavahandle(JNIEnv * env, int handle) {
 
 	jobject obj = (*env)->NewObject(env, clazz, constructor, handle);
 	return obj;
+}
+
+jobject createlist(JNIEnv * env) {
+	jclass clazz = (*env)->FindClass(env, "java/util/ArrayList");
+
+	jmethodID method = (*env)->GetMethodID(env, clazz, "<init>", "()V");
+
+	jobject list = (*env)->NewObject(env, clazz, method);
+
+	return list;
+}
+
+void addtolist(JNIEnv * env, jobject list, jobject obj) {
+	jclass clazz = (*env)->FindClass(env, "java/util/ArrayList");
+
+	(*env)->CallBooleanMethod(env, list, (*env)->GetMethodID(env, clazz, "add", "(Ljava/lang/Object;)Z"));
 }
