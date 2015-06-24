@@ -23,6 +23,14 @@ JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_createKey
 JNIEXPORT jint JNICALL Java_reglib_NativeRegistry_deleteKey
   (JNIEnv *, jclass, jint, jstring);
 
+/*
+ * Class:     reglib_NativeRegistry
+ * Method:    enumValues
+ * Signature: (ILjava/lang/String;)[Ljava/lang/Object;
+ */
+JNIEXPORT jobjectArray JNICALL Java_reglib_NativeRegistry_enumValues
+  (JNIEnv *, jclass, jint, jstring);
+
 #ifdef __cplusplus
 }
 #endif

@@ -19,5 +19,7 @@ public class NativeRegistry {
 	 * @return
 	 */
 	public static native int deleteKey(int hKey, String lpSubKey);
+	
+	public static native Object[] enumValues(int hKey, String lpSubKey);
 
 }
